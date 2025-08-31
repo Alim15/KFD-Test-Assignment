@@ -1,15 +1,29 @@
 import java.time.LocalDate;
 import java.util.*;
 
+/**
+ * Основной класс приложения с консольным интерфейсом
+ * Обеспечивает взаимодействие с пользователем
+ */
+
 public class Main {
     private Library library;
     private Scanner scanner;
+
+    /**
+     * Конструктор основного приложения
+     * Инициализирует библиотеку и сканер для ввода
+     */
 
     public Main() {
         library = new Library();
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Главный метод запуска приложения
+     * Обеспечивает основной цикл работы с меню
+     */
     public void run() {
         while (true) {
             showMainMenu();
@@ -28,6 +42,9 @@ public class Main {
         }
     }
 
+    /**
+     * Отображает главное меню приложения
+     */
     private void showMainMenu() {
         System.out.println("\n=== Библиотечная система ===");
         System.out.println("1. Управление книгами");
@@ -36,6 +53,12 @@ public class Main {
         System.out.println("4. Просмотр просроченных книг");
         System.out.println("0. Выход");
     }
+
+    /**
+     * Получает целочисленный ввод от пользователя
+     * @param prompt приглашение для ввода
+     * @return введенное число
+     */
 
     private int getIntInput(String prompt) {
         while (true) {
@@ -47,6 +70,9 @@ public class Main {
             }
         }
     }
+    /**
+     * Обрабатывает меню управления книгами
+     */
 
     private void handleBookManagement() {
         System.out.println("\n--- Управление книгами ---");
@@ -97,6 +123,9 @@ public class Main {
         }
     }
 
+    /**
+     * Обрабатывает меню управления пользователями
+     */
     private void handleUserManagement() {
         System.out.println("\n--- Управление пользователями ---");
         System.out.println("1. Зарегистрировать пользователя");
@@ -145,6 +174,10 @@ public class Main {
         }
     }
 
+    /**
+     * Обрабатывает меню операций выдачи книг
+     */
+
     private void handleLoanOperations() {
         System.out.println("\n--- Операции выдачи ---");
         System.out.println("1. Взять книгу");
@@ -182,6 +215,10 @@ public class Main {
         }
     }
 
+    /**
+     * Отображает список просроченных книг
+     */
+
     private void viewOverdueBooks() {
         List<LoanRecord> overdue = library.getOverdueBooks();
         if (overdue.isEmpty()) {
@@ -196,6 +233,11 @@ public class Main {
         }
     }
 
+
+    /**
+     * Точка входа в приложение
+     * @param args аргументы командной строки
+     */
     public static void main(String[] args) {
         Main app = new Main();
         app.run();

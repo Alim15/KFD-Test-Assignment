@@ -1,6 +1,13 @@
 import java.time.LocalDate;
 import java.util.*;
 
+
+/**
+ * class Library реализует LibraryOperations
+ * Содержит основные методы для работы библиотеки
+ * class Library имплементируется от LibraryOperations
+ */
+
 class Library implements LibraryOperations {
     private Map<String, Book> books;
     private Map<String, User> users;
@@ -60,7 +67,7 @@ class Library implements LibraryOperations {
                     user = new Student(name, userId, email);
                     break;
                 case FACULTY:
-                    user = new Faculty(name, userId, email);
+                    user = new Lecturer(name, userId, email);
                     break;
                 case GUEST:
                     user = new Guest(name, userId, email);
